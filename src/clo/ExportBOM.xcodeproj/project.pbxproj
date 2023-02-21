@@ -1,0 +1,319 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A528730B259C0A180085BE78 /* CLOAPIInterface.h in Headers */ = {isa = PBXBuildFile; fileRef = A528730A259C0A180085BE78 /* CLOAPIInterface.h */; };
+		CBB9C9E121B91DE70044A4DC /* ExportPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = CBB9C9E021B91DE70044A4DC /* ExportPlugin.h */; };
+		CBB9C9E321B91E240044A4DC /* ExportPlugin.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CBB9C9E221B91E240044A4DC /* ExportPlugin.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A528730A259C0A180085BE78 /* CLOAPIInterface.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CLOAPIInterface.h; path = ../../CLOAPIInterface.h; sourceTree = "<group>"; };
+		CBB9C9E021B91DE70044A4DC /* ExportPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExportPlugin.h; path = Source/ExportPlugin.h; sourceTree = "<group>"; };
+		CBB9C9E221B91E240044A4DC /* ExportPlugin.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ExportPlugin.cpp; path = Source/ExportPlugin.cpp; sourceTree = "<group>"; };
+		CBFD2E2821709F2F00630726 /* libExportBOM.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = libExportBOM.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CBFD2E2521709F2F00630726 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A5287309259C09F00085BE78 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				A528730A259C0A180085BE78 /* CLOAPIInterface.h */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		CBFD2E1F21709F2F00630726 = {
+			isa = PBXGroup;
+			children = (
+				CBFD2E3021709F9200630726 /* Header */,
+				CBFD2E2F21709F8500630726 /* Source */,
+				CBFD2E2921709F2F00630726 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CBFD2E2921709F2F00630726 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CBFD2E2821709F2F00630726 /* libExportBOM.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CBFD2E2F21709F8500630726 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CBB9C9E221B91E240044A4DC /* ExportPlugin.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		CBFD2E3021709F9200630726 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				A5287309259C09F00085BE78 /* API */,
+				CBB9C9E021B91DE70044A4DC /* ExportPlugin.h */,
+			);
+			name = Header;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CBFD2E2621709F2F00630726 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A528730B259C0A180085BE78 /* CLOAPIInterface.h in Headers */,
+				CBB9C9E121B91DE70044A4DC /* ExportPlugin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CBFD2E2721709F2F00630726 /* ExportBOM */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CBFD2E2C21709F2F00630726 /* Build configuration list for PBXNativeTarget "ExportBOM" */;
+			buildPhases = (
+				CBFD2E2421709F2F00630726 /* Sources */,
+				CBFD2E2521709F2F00630726 /* Frameworks */,
+				CBFD2E2621709F2F00630726 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ExportBOM;
+			productName = ExportBOM;
+			productReference = CBFD2E2821709F2F00630726 /* libExportBOM.dylib */;
+			productType = "com.apple.product-type.library.dynamic";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CBFD2E2021709F2F00630726 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = charlie;
+				TargetAttributes = {
+					CBFD2E2721709F2F00630726 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = LM3T6Q78ZL;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = CBFD2E2321709F2F00630726 /* Build configuration list for PBXProject "ExportBOM" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				en,
+			);
+			mainGroup = CBFD2E1F21709F2F00630726;
+			productRefGroup = CBFD2E2921709F2F00630726 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CBFD2E2721709F2F00630726 /* ExportBOM */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CBFD2E2421709F2F00630726 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CBB9C9E321B91E240044A4DC /* ExportPlugin.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CBFD2E2A21709F2F00630726 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CBFD2E2B21709F2F00630726 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = /usr/local/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CBFD2E2D21709F2F00630726 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
+				DEVELOPMENT_TEAM = LM3T6Q78ZL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					CLO_API_INTERFACE_STATIC_BUILD,
+				);
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../Lib";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				OTHER_LDFLAGS = (
+					"-L$(SRCROOT)/../../Lib",
+					"-lCLOAPIInterface",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+			};
+			name = Debug;
+		};
+		CBFD2E2E21709F2F00630726 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_CXX_LANGUAGE_STANDARD = "c++11";
+				DEVELOPMENT_TEAM = LM3T6Q78ZL;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_PREFIX = lib;
+				GCC_C_LANGUAGE_STANDARD = "compiler-default";
+				GCC_PREPROCESSOR_DEFINITIONS = CLO_API_INTERFACE_STATIC_BUILD;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../../";
+				INSTALL_PATH = /usr/local/lib;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../Lib";
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = (
+					"-L$(SRCROOT)/../../Lib",
+					"-lCLOAPIInterface",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CBFD2E2321709F2F00630726 /* Build configuration list for PBXProject "ExportBOM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBFD2E2A21709F2F00630726 /* Debug */,
+				CBFD2E2B21709F2F00630726 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CBFD2E2C21709F2F00630726 /* Build configuration list for PBXNativeTarget "ExportBOM" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CBFD2E2D21709F2F00630726 /* Debug */,
+				CBFD2E2E21709F2F00630726 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CBFD2E2021709F2F00630726 /* Project object */;
+}
