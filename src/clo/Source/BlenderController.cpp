@@ -5,7 +5,7 @@
 
 std::string ASSET_FOLDER = "asséts/";
 std::string SRC_FOLDER = "py_plugin/src/";
-std::string SCENE = "assets/Blender_Scene/Render_Sample_File.blend";
+std::string SCENE = "assets/Blender_Scene/scene.blend";
 std::string PY_EXEC = "main.py";
 
 bool BlenderController::run(std::string asset, std::string material) {

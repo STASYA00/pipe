@@ -197,7 +197,7 @@ void main() {
 	baseFolder = Utils::AddToPath(baseFolder, "assets");
 
 	auto asset = Utils::AddToPath(baseFolder, "test.glb");
-	ImportZprj_Sample();
+	//ImportZprj_Sample();
 	ExportGLB_Sample();
 	auto b = BlenderController();
 	b.run(asset, material);
