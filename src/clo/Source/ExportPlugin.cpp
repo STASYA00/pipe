@@ -1,5 +1,6 @@
 #include "stdafx.h"
 
+
 #include "ExportPlugin.h"
 
 #include "CLOAPIInterface.h"
@@ -7,6 +8,9 @@
 #include <string>
 #include <fstream>
 #include <map>
+
+#include "BlenderController.h"
+#include "utils.h"
 
 #if defined(__APPLE__)
 #include <unistd.h>
@@ -18,51 +22,6 @@
 using namespace std;
 using namespace CLOAPI;
 
-static std::string base64_encode(const std::string& in) {
-
-	std::string out;
-
-	int val = 0, valb = -6;
-	for (unsigned char c : in) {
-		val = (val << 8) + c;
-		valb += 8;
-		while (valb >= 0) {
-			out.push_back("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[(val >> valb) & 0x3F]);
-			valb -= 6;
-		}
-	}
-	if (valb > -6) out.push_back("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"[((val << 8) >> (valb + 8)) & 0x3F]);
-	while (out.size() % 4) out.push_back('=');
-	return out;
-}
-
-string getHomePath()
-{
-	string homePath = "C:/";
-
-#if defined(__APPLE__)
-	const char* homeDir = getenv("HOME");
-
-	if (homeDir == nullptr)
-	{
-		struct passwd* pwd = getpwuid(getuid());
-		if (pwd)
-			homeDir = pwd->pw_dir;
-	}
-
-	if (homeDir)
-	{
-		homePath = homeDir;
-		homePath = homePath + "/";
-	}
-	else
-	{
-		homePath = "/usr/local/";
-	}
-#endif
-
-	return homePath;
-}
 
 void ExportOBJ_Sample()
 {
@@ -78,8 +37,11 @@ void ExportOBJ_Sample()
 	vector<string> exportedFilePathList;
 	if (options.bSaveInZip)
 	{
-		string baseFolder = getHomePath() + "Zpac/";
-		exportedFilePathList = EXPORT_API->ExportOBJ(baseFolder + "test.obj", options); // returns only a file path for a zipped file including OBJ, MTL, and image files.
+		std::string root;
+		Utils::GetRootPath(root);
+		root = Utils::AddToPath(root, "assets");
+		root = Utils::AddToPath(root, "test.obj");
+		exportedFilePathList = EXPORT_API->ExportOBJ(root, options); // returns only a file path for a zipped file including OBJ, MTL, and image files.
 
 		// exportedFilePathList[0] -> a zip file
 
@@ -104,7 +66,6 @@ void ExportOBJ_Sample()
 
 }
 
-
 void ExportGLTF_Sample()
 {
 	if (!EXPORT_API)
@@ -119,8 +80,11 @@ void ExportGLTF_Sample()
 	// the other options are given as default. please refer to ImportExportOption class in ExportAPI.h
 
 	vector<string> exportedFilePathList;
-	string baseFolder = getHomePath() + "export_gltf/";
-	exportedFilePathList = EXPORT_API->ExportGLTF(baseFolder + "test.gltf", options, false); // returns only a file path for a zipped file including GLTF and BIN files.
+	std::string root;
+	Utils::GetRootPath(root);
+	root = Utils::AddToPath(root, "assets");
+	root = Utils::AddToPath(root, "test.gltf");
+	exportedFilePathList = EXPORT_API->ExportGLTF(root, options, false); // returns only a file path for a zipped file including GLTF and BIN files.
 
 	for (auto& path : exportedFilePathList)
 	{
@@ -129,30 +93,32 @@ void ExportGLTF_Sample()
 	}
 }
 
-
 void ImportZprj_Sample()
 {
-	
+
 	if (!IMPORT_API)
 		return;
 
-	string baseFolder = getHomePath() + "Zpac/";
-	UTILITY_API->DisplayMessageBox(baseFolder);
-	string filePath = "C:/Users/STFED/_A/Products/POC_pipeline/assets/test.zprj"; //must assign correct file path
+	std::string root;
+	Utils::GetRootPath(root);
+	root = Utils::AddToPath(root, "assets");
+	root = Utils::AddToPath(root, "test.zprj");
+	UTILITY_API->DisplayMessageBox(root);
 
 	Marvelous::ImportZPRJOption option;
-	IMPORT_API->ImportZprj(filePath, option);
+	IMPORT_API->ImportZprj(root, option);
 }
 
 void ImportFile_Sample()
 {
 	if (!IMPORT_API)
 		return;
+	std::string root;
+	Utils::GetRootPath(root);
+	root = Utils::AddToPath(root, "assets");
+	root = Utils::AddToPath(root, "test.zprj");
 
-	string baseFolder = getHomePath() + "Zpac/";
-	string filePath = baseFolder + "test.zprj"; //must assign correct file path
-
-	IMPORT_API->ImportFile(filePath);
+	IMPORT_API->ImportFile(root);
 }
 
 void GetMajorVersion_Test()
@@ -196,21 +162,45 @@ void ExportGLB_Sample()
 	Marvelous::ImportExportOption options;
 	options.bExportAvatar = false;
 	options.bExportGarment = true;
+	options.bThin = false;
+	options.bSingleObject = false;
+	options.bMetaData = true;
+
 	options.bSaveInZip = false;
 	options.scale = 0.001f; // same as gltf scale
 
 	// the other options are given as default. please refer to ImportExportOption class in ExportAPI.h
 
 	vector<string> exportedFilePathList;
-	string baseFolder = getHomePath() + "export_glb/";
-	exportedFilePathList = EXPORT_API->ExportGLB("C:/Users/STFED/_A/Products/POC_pipeline/assets/test.glb", options); // returns only a file path for GLB file 
+	string baseFolder = ""; // +"export_fbx/";
+	Utils::GetRootPath(baseFolder);
+	baseFolder = Utils::AddToPath(baseFolder, "assets");
+
+	auto asset = Utils::AddToPath(baseFolder, "test.glb");
+
+	exportedFilePathList = EXPORT_API->ExportGLB(asset, options);
 
 	for (auto& path : exportedFilePathList)
 	{
 		if (UTILITY_API)
 			UTILITY_API->DisplayMessageBox(path);
 	}
-	system("blender");
+	//system("blender");
+}
+
+void main() {
+	std::string material;
+	Utils::OpenFileDialog(material);
+	material = Utils::GetParentPath(material);
+	std::string baseFolder = ""; // +"export_fbx/";
+	Utils::GetRootPath(baseFolder);
+	baseFolder = Utils::AddToPath(baseFolder, "assets");
+
+	auto asset = Utils::AddToPath(baseFolder, "test.glb");
+	ImportZprj_Sample();
+	ExportGLB_Sample();
+	auto b = BlenderController();
+	b.run(asset, material);
 }
 
 void ExportFBX_Test()
@@ -224,7 +214,10 @@ void ExportFBX_Test()
 	// the other options are given as default. please refer to ImportExportOption class in ExportAPI.h
 
 	vector<string> exportedFilePathList;
-	string baseFolder = getHomePath() + "export_fbx/";
+	string baseFolder = ""; // +"export_fbx/";
+	Utils::GetRootPath(baseFolder);
+	Utils::AddToPath(baseFolder, "assets");
+
 	exportedFilePathList = EXPORT_API->ExportFBX(baseFolder + "test.fbx", options);
 
 	for (const auto& path : exportedFilePathList)
@@ -238,8 +231,7 @@ void ExportFBX_Test()
 
 extern CLO_PLUGIN_SPECIFIER void DoFunction()
 {
-	ImportZprj_Sample();
-	ExportGLB_Sample();
+	main();
 }
 
 extern CLO_PLUGIN_SPECIFIER void DoFunctionAfterLoadingCLOFile(const char* fileExtenstion)
