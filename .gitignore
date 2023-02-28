@@ -569,3 +569,6 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# blender backup
+*.blend1

@@ -1,9 +1,43 @@
-# import bpy
+import bpy
 # import numpy as np
 # import os
 
-# from blender_utils import get_fromnode_links, get_nodes_link, get_tonode_links
+from blender_utils import get_fromnode_links, get_nodes_link, get_tonode_links
+from config import MaterialConfig
     
+class Material:
+    def __init__(self) -> None:
+        
+        self._config = MaterialConfig()
+
+        self.filepath  = self._config.filepath + self._config.section + self._config.name
+        self.dir = self._config.filepath + self._config.section
+
+        self._material = self._create()
+
+    def _get_default(self):
+        _mat = [x for x in bpy.data.materials if x.name==self._config.name]
+        if len(_mat)>0:
+            return _mat[0]
+
+    def _create(self):
+        new_material = self._copy()
+        if (not new_material):
+            new_material = self._import()
+        return new_material
+
+    def _copy(self)->bool:
+        _mat = self._get_default()
+        if _mat:
+            return _mat.copy()
+    
+    def _import(self):
+        bpy.ops.wm.append(
+            filepath=self.filepath, 
+            filename=self._config.name,
+            directory=self.dir)
+        return self._get_default()
+
 # class Material:
 #     def __init__(self, part):
 #         self._nodes = self._get_node()
