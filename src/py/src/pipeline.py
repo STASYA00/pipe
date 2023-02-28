@@ -1,6 +1,7 @@
 import bpy
 
 from importer import Importer
+from material_manager import MaterialManager
 from renderer import Renderer
 
 class Pipeline:
@@ -22,4 +23,5 @@ class MvpPipeline(Pipeline):
 
     def _run(self):
         self.importer.run()
+        MaterialManager.run()
         self.renderer.render(self.value[:-4])

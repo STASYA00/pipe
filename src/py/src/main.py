@@ -21,7 +21,7 @@ if __name__ == '__main__':
 		parser = ArgumentParserForBlender(
 			formatter_class=argparse.RawDescriptionHelpFormatter,
 			description=textwrap.dedent('''\
-			USAGE: blender -b assets/Blender_Scene/Render_Sample_File.blend --python src/main.py -- --garment assets/garment.glb
+			USAGE: blender -b assets/Blender_Scene/scene.blend --python src/main.py -- --garment assets/garment.glb --material assets/Textures
 
 	        ------------------------------------------------------------------------
 	
