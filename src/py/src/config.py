@@ -30,4 +30,13 @@ class RenderConfig(metaclass=ConfigMeta):
         """
         Function that gets the render properties to set in the scene.
         """
-        return 
+        return
+
+
+class MaterialConfig(metaclass=ConfigMeta):
+    def __init__(self):
+        self.name = "Generic"
+        self.section = "\\Material\\"
+        self.filepath = "C:/Users/00sta/source/repos/pipe/assets/Material_Cube_01.blend"
+        
+    
