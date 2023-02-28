@@ -3,8 +3,8 @@
 #include "BlenderController.h"
 #include "utils.h"
 
-std::string ASSET_FOLDER = "asséts/";
-std::string SRC_FOLDER = "py_plugin/src/";
+std::string ASSET_FOLDER = "assï¿½ts/";
+std::string SRC_FOLDER = "src/py/src/";
 std::string SCENE = "assets/Blender_Scene/scene.blend";
 std::string PY_EXEC = "main.py";
 
