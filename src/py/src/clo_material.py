@@ -8,6 +8,7 @@ class CloMaterial:
         self.name = name
         self._color = None
         self._scale = []
+        self._meshes = []
         self._mat = self._load()
 
     @property
@@ -18,8 +19,16 @@ class CloMaterial:
     def scale(self):
         return [x for x in self._scale]
     
+    @property
+    def mesh(self)->list:
+        if len(self._meshes)>0:
+            return self._meshes 
+        return MaterialManager.get_meshes(self.name)
+    
     def delete(self):
         MaterialManager.delete_material(self._mat)
+
+    
         
     def _load(self):
         m = [x for x in bpy.data.materials if self.name in x.name]

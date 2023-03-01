@@ -18,13 +18,18 @@ class CloMaterialManager:
         self._factory = CloMaterialFactory()
         self._materials = []
         self._content = []
+        self._meshes = []
 
     @property
     def content(self):
         return [x for x in self._content]
+    
+    
 
     def _clean(self):
         MaterialManager.run()
+
+   
 
     def _load(self):
         self._materials = [x for x in bpy.data.materials if MaterialConfig().code in x.name]
@@ -36,5 +41,4 @@ class CloMaterialManager:
     def run(self):
         self._clean()
         self._load()
-        print(self._materials)
         self._populate()
