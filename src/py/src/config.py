@@ -39,4 +39,7 @@ class MaterialConfig(metaclass=ConfigMeta):
         self.section = "\\Material\\"
         self.filepath = "C:/Users/00sta/source/repos/pipe/assets/Material_Cube_01.blend"
         
+        self.color_node = "Mix"
+        self.mapping_node = "Mapping"
+        self.code = "MLK"
     

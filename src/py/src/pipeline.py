@@ -2,7 +2,7 @@ import bpy
 
 from importer import Importer
 from material import Material
-from material_manager import MaterialManager
+from clo_material_manager import CloMaterialManager
 from renderer import Renderer
 
 class Pipeline:
@@ -24,6 +24,10 @@ class MvpPipeline(Pipeline):
 
     def _run(self):
         self.importer.run()
-        MaterialManager.run()
-        Material()
-        self.renderer.render(self.value[:-4])
+        manager = CloMaterialManager()
+        manager.run()
+        print([ x.scale for x in manager.content])
+        print([ x.color for x in manager.content])
+        #MaterialManager.run()
+        #Material()
+        #self.renderer.render(self.value[:-4])
