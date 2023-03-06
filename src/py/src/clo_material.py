@@ -11,6 +11,7 @@ class CloMaterial:
         self._meshes = []
         self._mat = self._load()
 
+
     @property
     def color(self):
         return [x for x in self._color]
@@ -37,16 +38,19 @@ class CloMaterial:
             self._mat = m
             self._get_color()
             self._get_scale()
+            self._meshes =  MaterialManager.get_meshes(self.name)
             return m
         
     def _get_color(self):
         _node = [x for x in self._mat.node_tree.nodes if MaterialConfig().color_node==x.name]
         if len(_node)>0:
             _node = _node[0]
-            self._color = [x for x in _node.inputs[7].default_value] # RGBA
+            _socket = [x for x in _node.inputs if x.name=="Color2"][0]
+            self._color = [x for x in _socket.default_value] # RGBA
 
     def _get_scale(self):
         _node = [x for x in self._mat.node_tree.nodes if MaterialConfig().mapping_node==x.name]
         if len(_node)>0:
             _node = _node[0]
-            self._scale = [x for x in _node.inputs[3].default_value] # XYZ
+            _socket = [x for x in _node.inputs if x.name=="Scale"][0]
+            self._scale = [x for x in _socket.default_value] # XYZ

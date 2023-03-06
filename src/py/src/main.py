@@ -21,7 +21,7 @@ if __name__ == '__main__':
 		parser = ArgumentParserForBlender(
 			formatter_class=argparse.RawDescriptionHelpFormatter,
 			description=textwrap.dedent('''\
-			USAGE: blender -b assets/Blender_Scene/scene.blend --python src/main.py -- --garment assets/garment.glb --material assets/Textures
+			USAGE: blender -b assets/Blender_Scene/scene.blend --python src/py/src/main.py -- --garment assets/garment.glb --material assets/Textures
 
 	        ------------------------------------------------------------------------
 	
@@ -80,7 +80,5 @@ if __name__ == '__main__':
 	GARMENT = argv[1]
 	MATERIAL = argv[3]
 	print("\nMATERIAL:\n", MATERIAL)
-	t = Texture(MATERIAL, "Image_9.png")
-	print(t.content)
 	p = MvpPipeline(GARMENT)
 	p.run()
