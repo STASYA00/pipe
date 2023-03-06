@@ -15,7 +15,11 @@ def deselect_all():
 	for obj in bpy.data.objects:
 		obj.select_set(False)
 
-def get_nodes_link(node1, node2, links):
+def get_material_links(material):
+	return [x for x in material.node_tree.links]
+
+def get_nodes_link(node1, node2, material):
+	links = get_material_links(material)
 	for link in [x for x in links]:
 		if node1.name == link.from_node.name:
 			if node2.name == link.to_node.name:

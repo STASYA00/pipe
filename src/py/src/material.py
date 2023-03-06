@@ -13,7 +13,8 @@ class Material:
         self.filepath  = self._config.filepath + self._config.section + self._config.name
         self.dir = self._config.filepath + self._config.section
 
-        self._material = self._create()
+        self.material = self._create()
+
 
     def _get_default(self):
         _mat = [x for x in bpy.data.materials if x.name==self._config.name]
@@ -37,6 +38,8 @@ class Material:
             filename=self._config.name,
             directory=self.dir)
         return self._get_default()
+    
+
 
 # class Material:
 #     def __init__(self, part):

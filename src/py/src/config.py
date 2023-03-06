@@ -1,3 +1,5 @@
+import os
+
 class ConfigMeta(type):
     """
     Singleton metaclass
@@ -21,7 +23,7 @@ class RenderConfig(metaclass=ConfigMeta):
         self.samples = 200
         self.engine = "CYCLES"
         self.image_size = 600
-        self.output_folder = "C:/Users/STFED/_A/Products/POC_pipeline/assets/out"
+        self.output_folder = "./assets/out"
         self.device = "GPU"
         self.color_mode = "RGBA"
         self.img_format = "PNG"
@@ -37,6 +39,11 @@ class MaterialConfig(metaclass=ConfigMeta):
     def __init__(self):
         self.name = "Generic"
         self.section = "\\Material\\"
-        self.filepath = "C:/Users/00sta/source/repos/pipe/assets/Material_Cube_01.blend"
+        self.root = os.getcwd()
+        self.asset_path = self.root + "/assets/Textures"
+        self.filepath = "./assets/Material_Cube_01.blend"
         
+        self.color_node = "Mix"
+        self.mapping_node = "Mapping"
+        self.code = "MLK"
     
